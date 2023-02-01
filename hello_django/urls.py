@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.http import JsonResponse
 from django.urls import path
-from django.url import include
+from django.urls import include
 
 
 def test(request):
