@@ -9,7 +9,7 @@ def test(request):
 
 
 urlpatterns = [
-    path('', include('base.urls'))
+    path('', include('base.urls')),
     path("/test", test, name="test"),
-    path("admin/", admin.site.urls),
+    path("admin/", admin.site.urls)
 ]
