@@ -4,10 +4,10 @@ from django.urls import path
 
 
 def home(request):
-    return JsonResponse({"hello": "world!"})
+    return JsonResponse({"hola": "como estas?"})
 
 
 urlpatterns = [
-    path("", home, name="home"),
+    path("/test", test, name="test"),
     path("admin/", admin.site.urls),
 ]
