@@ -20,12 +20,21 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '52@y%9$#3#)9cff)jdcl&0-@4(u!y)dw@l2!e2s8!(jrrta_u+'
+SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", 'django-insecure-*unlxi8=mn1)v8fjr23^mts+!9yk!*cc8=3o%ugbztxhf#3os=')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
+
+# Uncomment to test allowed hosts
+# ALLOWED_HOSTS = [
+#     '192.168.100.47',
+#     '127.0.0.1',
+#     'yaenvialo.com',
+#     'www.yaenvialo.com'
+# ].append(os.getenv("DJANGO_ALLOWED_HOSTS", "127.0.0.1,localhost").split(","))
+
 
 # Application definition
 
@@ -54,7 +63,9 @@ ROOT_URLCONF = 'hello_django.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            BASE_DIR / 'templates'
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -117,6 +128,6 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-STATIC_URL = '/static/'
-STATIC_ROOT = Path(BASE_DIR).joinpath("staticfiles")
-STATICFILES_DIRS = (Path(BASE_DIR).joinpath("static"),)
+STATIC_URL = 'static/'
+STATIC_ROOT = Path(BASE_DIR).joinpath("static")
+STATICFILES_DIRS = (Path(BASE_DIR).joinpath("staticfiles"),)
