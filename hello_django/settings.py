@@ -14,15 +14,15 @@ from pathlib import Path
 import dj_database_url
 
 # Deal with nosniff bug
-from os import path, environ
-from sys import path as sys_path
-from django import setup
+# from os import path, environ
+# from sys import path as sys_path
+# from django import setup
 import django.middleware.security as security
 
 
-sys_path.append('hello_django/')    
-environ.setdefault('DJANGO_SETTINGS_MODULE', 'hello_django.settings')
-setup()
+# sys_path.append('hello_django/')    
+# environ.setdefault('DJANGO_SETTINGS_MODULE', 'hello_django.settings')
+# setup()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 # BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
